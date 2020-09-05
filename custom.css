@@ -1,0 +1,108 @@
+body {
+	margin: 0;
+}
+
+.hero {
+	display: block;
+	color: #fff;	
+	padding: 100px 20px 0 20px;
+	background: url(blakiston_admin.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	opacity: 0.9;
+	height: 100vh;
+}
+
+.hero-intro {
+	font-weight: 700;
+	font-size: 2rem;
+
+}
+.hero h1 {
+	font-size: 1.4rem;
+}
+.hero p {
+	font-size: 1.1rem;
+}
+
+.btn-hero {
+	display: inline-block;
+	font-size: 1.1rem;
+	font-weight: 700;
+	background: #ff0000;
+	color: #fff;
+	padding: 10px 40px;
+	text-decoration: none;
+	border-radius: 6px;
+}
+
+.school_history {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 30px;
+}
+
+h2 {
+	text-align: center;
+	font-size: 2.5rem;
+}
+
+.history {
+	margin-bottom: 30px;
+	position: absolute;
+}
+
+.first-head {
+	width:100%;
+	z-index: 1;
+	position: relative;
+}
+
+.founding_headmaster p {
+	background: #008000;
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 700;
+	padding: 10px 20px;
+	border-radius: 6px;
+	width:75%;
+	margin: -20px auto 0;
+	z-index: 2;
+	position: relative;
+}
+
+.almuni {
+	background: #f5f5f5;
+}
+
+.almuni h2, .testimonials h2 {
+	padding-top: 30px;
+}
+
+.almuni-list {
+	display: flex;
+	align-content: center;
+	align-items: center;
+	width: 420px;
+}
+
+.almuni-card {
+	width:100px;
+	height: 100px;
+	border-radius: 50%;
+	padding-left: 20px;
+}
+
+.almuni-list p {
+	width: 80%;
+	margin-left: 10px;
+	padding-right: 5px;
+	line-height: 1.3;
+}
+
+
+footer {
+	background: grey;
+		height: 30vh;
+}
