@@ -1,57 +1,106 @@
 *,
-*::before,
-*::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+*:before,
+*:after {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
 }
-
-body {
-	font-family: Georgia, "Times New Roman",Times, serif;
-	font-size: 1rem;
-}
-
-ul {
-	list-style: none;
+body{
+    font-family: sans-serif;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
 }
 
 .navBar {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	background: #003300;
-	border: 1px solid #fafafa;
-	padding-bottom: 0.625rem;
+    height: 10vh;
+    display: flex;
+    position: relative;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background: #003300;
+}
+
+.navbrand {
+    padding-top: .8em;
+    padding-left: 1em;
 }
 
 .logo {
-	font-size: 1.3rem;
-	font-weight: 600;
-	display: inline-block;
-	color: #fafafa;
-	padding-top: .625em;
-	padding-left: .625em;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.navList {
+    position: absolute;
+    background: #003300;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    clip-path: circle(100px at 90% -10%);
+    /*-webkit-clip-path: circle(100px at 90% -10%);*/
+    transition: all 1s ease-out;
+    pointer-events: none;
+    padding-top: 9em;
+}
+
+.navList.open {
+    clip-path: circle(1000px at 90% -10%);
+    /*-webkit-clip-path: circle(1000px at 90% -10%);*/
+    pointer-events: all; 
 }
 
 .navItem {
-	flex-direction: column;
-	text-align: center;
-	line-height: 1.4;
-	padding-top: 1.5em;
+    text-align: center;
+    padding-top: 1.2em;
+    opacity: .9;
 }
 
 .navLink {
-	font-size: 1rem;
-	color: #fafafa;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.6;  
+}
+.navLink:nth-child(1){
+    transition: all 0.5s ease 0.2s;
+}
+.navLink:nth-child(2){
+    transition: all 0.5s ease 0.4s;
+}
+.navLink:nth-child(3){
+    transition: all 0.5s ease 0.6s;
+}
+.navLink:nth-child(4){
+    transition: all 0.5s ease 0.6s;
+}
+.navLink:nth-child(5){
+    transition: all 0.5s ease 0.6s;
+}
+.navLink:nth-child(6){
+    transition: all 0.5s ease 0.6s;
+}
+.navLink.fade{
+    opacity: 1;
+}
+.navLink:focus {
+    color: #ff0000;
+    opacity: .3;
+}
+.navLink:hover {
+    color: #ff0000;
 }
 
-
 .socialContact {
-        display: flex;
-        margin: 1em 10em 1em 10em;
-    }
+    display: flex;
+    margin: 1em auto;
+}
 
 .socialLink {
     background: #fafafa;
@@ -67,35 +116,68 @@ a {
 .socialFB {
     font-size: 1.5rem;
     color: #4267b2;
+    padding: 1em;
 }
 
 .socialTwitter {
     font-size: 1.5rem;
     color: #1da1f2;
+    padding: 1em;
 }
 
 .socialInsta {
     font-size: 1.5rem;
     color: #000;
+    padding: 1em;
 }
 
-.openMenu {
-	position: absolute;
-	top: .625em;
-	right: 1.25em;
-	font-size: 1.25rem;
-	color: #fafafa;
-	font-weight: 600;
-	cursor: pointer;
+.hamburger-btn {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%,-50%);
+    z-index: 2;
 }
 
-.navList {
-	display: none;
+.hamburger-btn_burger {
+    width: 20px;
+    height: 3px;
+    background: #fff;
+    margin: 5px;
+    transition: all .5s ease-in-out;
 }
 
+.hamburger-btn_burger::before,
+.hamburger-btn_burger::after {
+    content: '';
+    position: absolute;
+    width:20px;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
 
-.active {
-	display: block;
+.hamburger-btn_burger::before {
+    transform: translateY(-7px);
+}
+
+.hamburger-btn_burger::after {
+    transform: translateY(7px);
+}
+
+.hamburger-btn.open .hamburger-btn_burger {
+    transform: translateX(-50px);
+    background: transparent;
+}
+
+.hamburger-btn.open .hamburger-btn_burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.hamburger-btn.open .hamburger-btn_burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
 }
 
 @media screen and (min-width: 768px) {
@@ -113,6 +195,7 @@ a {
         justify-content: flex-end;
     }
     .navItem {
+        display: inline-block;
         margin: 0;
     }
     .navLink {
@@ -121,19 +204,17 @@ a {
     .logo {
         margin-top: 0;
     }
-   .openMenu {
+   .hamburger-btn {
        display: none;
     }
     .socialContact {
-    	display: none;
+        display: none;
     }
     .logo:hover,
     .navLink:hover {
         color: rgba(255, 255, 255, 1);
     }
 }
-
-
 
 
 
@@ -311,7 +392,7 @@ section {
 	padding: 5em 0;
 }
 
-/*Navigation Bar*/
+/*Navigation Bar
 
 /*header {
 	width: 100%;
