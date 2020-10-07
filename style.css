@@ -1,10 +1,15 @@
-*{
+*,
+*::before,
+*::after {
     margin:0;
     padding:0;
     box-sizing: border-box;
 }
-body{
-    font-family: sans-serif;
+
+body {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 a {
@@ -15,7 +20,12 @@ ul {
     list-style: none;
 }
 
-.navBar {
+img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.navMenu {
     position: relative;
     height: 10vh;
     display: flex;
@@ -24,215 +34,415 @@ ul {
 }
 
 .navbrand {
-    padding: .8em 0 0 1em;
-/*    margin: 2.5em 0;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1.5em;
 }
 
-.logo {
+.navLogo {
+    width: 3em;
+    height: 3em;
+}
+
+.navImage {
+    width: 3em;
+    border-radius: 50%;
+    padding-right: .5em;
+    padding-bottom: 2em;
+}
+
+.schoolMotto {
+    display: none;
+}
+
+.schoolName {
     font-size: 1.4rem;
     font-weight: 600;
     color: #fff;
+    padding-top: 2em;
+}
+
+.schoolName:focus,
+.navLink:focus {
+    color: #ff0000;
+    opacity: .1;
+}
+
+.schoolName:hover,
+.navLink:hover {
+    color: #ff0000;
 }
 
 .navList {
-    position: absolute;
-    background: #003300;
-    height: 100vh;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    clip-path: circle(100px at 90% -10%);
-    -webkit-clip-path: circle(100px at 90% -10%);
-    transition: all 1s ease-out;
-    pointer-events: none;
-    padding-top: 9em;
-}
-
-.navList.open {
-    clip-path: circle(1000px at 90% -10%);
-    -webkit-clip-path: circle(1000px at 90% -10%);
-    pointer-events: all; 
-}
-
-.navItem {
-    text-align: center;
-    padding-top: 1.2em;
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
 }
 
 .navLink {
+    color: white;
+    text-decoration: none;
     font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.6;  
-}
-.navLink:nth-child(1){
-    transition: all 0.5s ease 0.2s;
-}
-.navLink:nth-child(2){
-    transition: all 0.5s ease 0.4s;
-}
-.navLink:nth-child(3){
-    transition: all 0.5s ease 0.6s;
-}
-.navLink:nth-child(4){
-    transition: all 0.5s ease 0.6s;
-}
-.navLink:nth-child(5){
-    transition: all 0.5s ease 0.6s;
-}
-.navLink:nth-child(6){
-    transition: all 0.5s ease 0.6s;
-}
-.navLink.fade {
-    opacity: 1;
-}
-.navLink:focus {
-    color: #ff0000;
-    opacity: .3;
-}
-.navLink:hover {
-    color: #ff0000;
-    opacity: .6;
 }
 
 .socialContact {
-    display: flex;
-    margin: 1em auto;
+    display: none;
 }
 
-.socialLink {
-    background: #fafafa;
-    width: 40px;
-    height: 40px;
-    margin: 1em 0.625em;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.socialFB {
-    font-size: 1.5rem;
-    color: #4267b2;
-    padding: 1em;
-}
-
-.socialTwitter {
-    font-size: 1.5rem;
-    color: #1da1f2;
-    padding: 1em;
-}
-
-.socialInsta {
-    font-size: 1.5rem;
-    color: #000;
-    padding: 1em;
-}
-
-.hamburger-btn {
-    position: absolute;
-    cursor: pointer;
-    right: 5%;
-    top: 50%;
-    transform: translate(-5%,-50%);
-    z-index: 2;
-}
-
-.hamburger-btn_burger {
-    width: 20px;
-    height: 3px;
-    background: #fff;
-    margin: 5px;
-    transition: all .5s ease-in-out;
-}
-
-.hamburger-btn_burger::before,
-.hamburger-btn_burger::after {
-    content: '';
-    position: absolute;
-    width:20px;
-    height: 3px;
-    background: #fff;
-    border-radius: 5px;
-    transition: all .5s ease-in-out;
-}
-
-.hamburger-btn_burger::before {
-    transform: translateY(-7px);
-}
-
-.hamburger-btn_burger::after {
-    transform: translateY(7px);
-}
-
-.hamburger-btn.open .hamburger-btn_burger {
-    transform: translateX(-50px);
-    background: transparent;
-}
-
-.hamburger-btn.open .hamburger-btn_burger::before {
-    transform: rotate(45deg) translate(35px, -35px);
-}
-
-.hamburger-btn.open .hamburger-btn_burger::after {
-    transform: rotate(-45deg) translate(35px, 35px);
-}
-
-@media screen and (min-width: 768px) {
-    .navBar {
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
+@media screen and (max-width:768px){
+    .navMenu {
+        position: relative;
+        z-index: 3;
     }
 
+    .schoolName {
+        font-size: 1.2rem;
+    }
+
+    .navbrand {
+        position: absolute;
+        padding-bottom: 20px;
+    }
+    
     .navList {
-        width: 80%;
-        height: 100%;
+        position: absolute;
+        background: #003300;
+        height: 100vh;
+        width: 100%;
         display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        /*clip-path: inset(0% 0% 10% 30%);*/
+        flex-direction: column;
+        clip-path: circle(100px at 90% -10%);
+        -webkit-clip-path: circle(100px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+        padding-top: 9em;
+    }
+
+    .navList.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all; 
     }
 
     .navItem {
-        padding-top: 1em;
-        padding-right: 2em;
-        padding-bottom: 2em;
-
+        opacity: 0;
     }
 
     .navLink {
-        font-size: 1rem;
+        font-weight: 600;
         color: #fff;
-        cursor: pointer;
-        display: inline-block;
-        margin: 0 70px 0 0;
-        text-align: left;
-        border-bottom-style: none;
-        padding: 0;
+        line-height: 1.6;   
     }
-    
 
-    .navbrand {
-        margin-bottom: 1em;
+    .navLink:nth-child(1){
+        transition: all 0.5s ease 0.2s;
     }
-    
-    .logo {
-        margin-top: 0;
+    .navLink:nth-child(2){
+        transition: all 0.5s ease 0.4s;
     }
-   .hamburger-btn {
-       display: none;
+    .navLink:nth-child(3){
+        transition: all 0.5s ease 0.6s;
     }
+
+    .navItem.fade{
+        opacity: 1;
+    }
+
+    .hamburger-btn {
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%,-50%);
+        z-index: 2;
+    }
+
+    .hamburger-btn_burger {
+        width: 20px;
+        height: 3px;
+        background: #fff;
+        margin: 5px;
+        transition: all .5s ease-in-out;
+    }
+
+    .hamburger-btn_burger::before,
+    .hamburger-btn_burger::after {
+        content: '';
+        position: absolute;
+        width:20px;
+        height: 3px;
+        background: #fff;
+        border-radius: 5px;
+        transition: all .5s ease-in-out;
+    }
+
+    .hamburger-btn_burger::before {
+        transform: translateY(-7px);
+    }
+
+    .hamburger-btn_burger::after {
+        transform: translateY(7px);
+    }
+
+    .hamburger-btn.open .hamburger-btn_burger {
+        transform: translateX(-50px);
+        background: transparent;
+    }
+
+    .hamburger-btn.open .hamburger-btn_burger::before {
+        transform: rotate(45deg) translate(35px, -35px);
+    }
+
+    .hamburger-btn.open .hamburger-btn_burger::after {
+        transform: rotate(-45deg) translate(35px, 35px);
+    }
+
     .socialContact {
-        display: none;
+        display: flex;
+        margin: 1em auto;
     }
-    .logo:focus {
-        color: #ff0000;
-        opacity: .1;
+
+    .socialLink {
+        background: #fafafa;
+        width: 40px;
+        height: 40px;
+        margin: 1em 0.625em;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .logo:hover {
-        color: #ff0000;
+
+    .socialFB {
+        font-size: 1.5rem;
+        color: #4267b2;
+        padding: 1em;
+    }
+
+    .socialTwitter {
+        font-size: 1.5rem;
+        color: #1da1f2;
+        padding: 1em;
+    }
+
+    .socialInsta {
+        font-size: 1.5rem;
+        color: #000;
+        padding: 1em;
     }
 }
 
+.hero {
+    max-width: 100%;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(135deg, rgba(0,0,0,.9)0%, rgba(0,0,0,.6)100%), url(blakiston_admin.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.hero-message {
+    width: 100%;
+    max-width: 50em;
+    color: #fff;
+    transform: translateY(20%);
+    padding-left: .5em;
+    padding-right: .5em;
+    line-height: 1.4;
+}
+
+.hero-intro {
+    font-size: 1.05rem;
+}
+
+.hero-main {
+    margin-top: 1em;
+    font-size: 2.2rem;
+}
+
+.hero-desc {
+    margin-top: 1em;
+    font-size: 1.05rem;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #fafafa;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: .5em 4em;
+    margin: 2.5em 4em 0;
+    border-radius: .3em;
+    transition: background-color 650ms;
+}
+
+.btn-hero:hover {
+    background: #fafafa;
+    color: #ff0000;
+    border: .1em solid #003300;
+}
+
+.socialmedia {
+    display: none;
+}
+
+@media screen and (min-width: 768px){
+    .hero {
+        max-width: 100%;
+        position: relative;
+    }
+
+    .hero-message {
+        max-width: 87.5em;
+        text-align: center;
+        padding-top: 9em;
+    }
+
+    .hero-main {
+        font-size: 2.8rem;
+        margin-top: .5em;
+    }
+
+    .socialmedia {
+        display: flex;
+        position: absolute;
+        right: .5em;
+    }
+
+    .socialLink {
+        background: #fafafa;
+        width: 40px;
+        height: 40px;
+        margin: 1em 0.625em;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .socialFB {
+        font-size: 1.5rem;
+        color: #4267b2;
+        padding: 1em;
+    }
+
+    .socialTwitter {
+        font-size: 1.5rem;
+        color: #1da1f2;
+        padding: 1em;
+    }
+
+    .socialInsta {
+        font-size: 1.5rem;
+        color: #000;
+        padding: 1em;
+    }
+}
+
+/*School History*/
+/*.content-title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 1em 1em;
+}
+
+.about-intro {
+    margin-bottom: 1.5em;
+}
+
+.school_history {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+}
+
+.btn-history {
+    display: inline-block;
+    background-color: #003300;
+    color: #fafafa;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: .5em 4em;
+    margin: 2.5em 4em 0;
+    border-radius: .3em;
+    transition: background-color 650ms;
+}
+
+.btn-history:hover {
+    background: #fafafa;
+    color: #333;
+    border: .1em solid #003300;
+}
+
+.first-head {
+    max-width: 100%;
+    width:100%;
+    border-radius: 4px;
+    z-index: 1;
+    position: relative;
+}
+
+.founding_headmaster p {
+    background: #003300;
+    color: #fff;
+    font-size: .938rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 3px;
+    border-radius: 6px;
+    width:75%;
+    margin: -20px auto 0;
+    z-index: 2;
+    position: relative;
+}
+
+@media(min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 44em)) 1fr;
+  }
+ 
+}
+
+
+
+.history {
+    margin-bottom: 30px;
+    position: absolute;
+}
+
+
+
+.almuni {
+    background: #f5f5f5;
+}
+
+.almuni h2, .testimonials h2 {
+    padding-top: 30px;
+}
+
+.almuni-list {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 420px;
+}
+
+.almuni-card {
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    padding-left: 20px;
+}
+
+.almuni-list p {
+    width: 80%;
+    margin-left: 10px;
+    padding-right: 5px;
+    line-height: 1.3;
+}*/

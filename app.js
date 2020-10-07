@@ -1,10 +1,10 @@
 const hamburger=document.querySelector('.hamburger-btn');
-const navList=document.querySelector('.navList');
-const navLinks=document.querySelectorAll('.navLink');
+const navLinks=document.querySelector('.navList');
+const links=document.querySelectorAll('.navItem');
 
 hamburger.addEventListener('click',()=>{
-    navList.classList.toggle("open");
-    navLinks.forEach(link=>{
+    navLinks.classList.toggle("open");
+    links.forEach(link=>{
         link.classList.toggle("fade");
     });
 });
